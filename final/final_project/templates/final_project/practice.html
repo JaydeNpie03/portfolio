@@ -1,0 +1,17 @@
+{% extends "final_project/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'final_project/daynight.js' %}"></script>
+    <script src="{% static 'final_project/practice.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    
+<div class="row justify-content-center"> <!-- Contains bootstrap cards from JS -->
+    <div class="col-12 text-center">
+        <p class="h1">All Posts:</p>
+    </div>
+</div>
+
+{% endblock %}

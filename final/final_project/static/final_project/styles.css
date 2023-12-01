@@ -1,0 +1,278 @@
+
+@keyframes bob {
+    0% {
+        top: 0%;
+    }
+
+    50% {
+        top: 50%;
+    }
+
+    100% {
+        top: 0%;
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: -10%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes drop {
+    from {
+        offset-distance: 0%;
+        font-size: var(--fs1, 100%);
+    }
+
+    to {
+        offset-distance: 100%;
+        font-size: var(--fs2, 100%);
+    }
+    
+}
+
+@keyframes fadePage {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes deleteCard {
+    0% {
+        opacity: 1;
+        margin-bottom: 0%;
+    }
+    55% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+        margin-bottom: var(--mb);
+        width: var(--w);
+        
+    }
+    100% {
+        opacity: 0;
+        margin-bottom: var(--mb);
+        width: 0px;
+
+    }
+}
+
+@keyframes shake {
+    0% {
+        left: var(--l0);
+    }
+
+    25% {
+        left: var(--l1);
+    }
+
+    50% {
+        left: var(--l0);
+    }
+
+    75% {
+        left: var(--l2);
+    }
+
+    100% {
+        left: var(--l0);
+    }
+}
+
+
+body {
+    background-color: rgb(57, 57, 57);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    text-align: center;
+    width: 100vw;
+}
+
+.hover-scale {
+    transition: scale 175ms;
+}
+
+.hover-scale:hover {
+    scale: 1.15;
+}
+
+.floating-kanji {
+    position: absolute;
+    font-size: 48px;
+    user-select: none;
+    color: rgb(230, 230, 230);
+    offset-rotate: 0deg;
+    animation: bob 10s ease-in-out 0s infinite forwards running,
+            slide 45s linear 0s 1 forwards running;
+}
+
+#topbar-div {
+    display: inline-block;
+    padding: 10px 80px;
+    width: 100vw;
+    height: 125px;
+    font-size: 48px;
+}
+
+#menu {
+    height: inherit;
+    font-size: 30px;
+}
+
+#menu a {
+    color: inherit;
+}
+
+#profile_pic {
+    height: 35%;
+    border-radius: 50%;
+    width: auto;
+}
+
+#kanji-1, #kanji-2, #kanji-3 {
+    position: relative;
+    width: inherit;
+    height: 33%;
+    overflow: hidden;
+}
+
+#kanji-container {
+    margin: 100px 0px;
+    width: 100vw;
+    height: 30vw;
+    transition: opacity 1s;
+}
+
+#post-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
+#bottom-container {
+    position: fixed;
+    text-align: center;
+    bottom: 0px;
+    left: 50%;
+    transition: color 75ms;
+}
+
+#kanji-to-post {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    user-select: none;
+    font-size: 72px;
+}
+
+.kanjiCard {
+    padding: 20px 10px;
+    transition: scale 175ms;
+    border-radius: 5px;
+}
+
+#is-full {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 100ms;
+}
+
+#top-container {
+    margin-top: -48px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding-right: 40px;
+    font-size: 28px;
+}
+
+#np-button {
+    float: right;
+    display: none;
+    user-select: none;
+    transition: scale 175ms;
+    padding: 0px;
+    border: none;
+    background-color: transparent
+}
+
+#user-button {
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+#np-button:focus, #user-button:focus {
+    outline:none !important
+}
+
+#user-button:hover {
+    text-decoration: underline;
+}
+
+.overlay {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    transition: opacity 175ms;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 2000;
+}
+
+#info-popup {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    background-color: #39393980; 
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+#info-night {
+    position: relative;
+    width: 40%;
+    padding-bottom: 40%;
+    background-color: rgb(57, 57, 57);
+    border: 2px solid azure;
+    border-radius: 5px;
+    height: 0px;
+}
+
+#bg {
+    max-width: 100vw;
+    height: auto;
+}
+
+#logo {
+    max-height: 100%;
+    width: auto;
+}
+
+#menu {
+    float: right;
+}
+
+#auth-page-box {
+    margin: 30px 40%;
+}

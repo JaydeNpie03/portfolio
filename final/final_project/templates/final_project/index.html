@@ -1,0 +1,227 @@
+{% extends "final_project/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <script src="{% static 'final_project/daynight.js' %}"></script>
+    <script src="{% static 'final_project/index.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div id="register" class="overlay">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+    
+                        <div class="mb-md-5 mt-md-4 pb-5">
+    
+                            <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+                            <p class="text-white-50 mb-5" id="register-msg">
+                            {% if message %}
+                                {{ message }}
+                            {% else %}
+                                Please enter your desired credentials.
+                            {% endif %}
+                            </p>
+
+                            <div class="form-outline form-white mb-4">
+                                <input class="form-control" autofocus type="text" id="new-user" placeholder="Username">
+                            </div>
+    
+                            <div class="form-outline form-white mb-4">
+                                <input class="form-control" type="email" id="new-email" placeholder="Email Address">
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input class="form-control" type="password" id="new-pass" placeholder="Password">
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input class="form-control" type="password" id="confirmation" placeholder="Confirm Password">
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input class="form-control" id="new-avatar" type="file" accept="image/*">
+                            </div>
+    
+                            <button class="btn btn-outline-light btn-lg px-5" id="register-button">Register</button>
+    
+                        </div>
+    
+                        <div>
+                            <p class="mb-0">
+                                Already have an account? <a href="#" id="goto-login" class="text-white-50 fw-bold">Log In</a>
+                            </p>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="login" class="overlay">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-5" id="login-msg">
+                                Please enter your login and password!
+                            </p>
+                            
+                            <div class="form-outline form-white mb-4">
+                                <input type="text" id="in-user" class="form-control form-control-lg" placeholder="Username"/>
+                            </div>
+    
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="in-pass" class="form-control form-control-lg" placeholder="Password"/>
+                            </div>
+    
+                            <button class="btn btn-outline-light btn-lg px-5" id="login-button">Login</button>
+
+                        </div>
+
+                        <div>
+                            <p class="mb-0">
+                                Don't have an account? <a href="#" id="goto-register" class="text-white-50 fw-bold">Sign Up</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if request.user.is_authenticated %}
+    <div id="profile" class="overlay">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+    
+                            <div class="mb-md-5 mt-md-4 pb-5">
+    
+                                <h2 class="fw-bold mb-2 text-uppercase">Profile</h2>
+                                
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    Posts: <span id="post-amnt">{{ request.user.all_posts.count }}</span>
+                                </div>
+        
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    Comments: <span id="comment-amnt">{{ request.user.user_comments.count }}</span>
+                                </div>
+
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    Social Points: <span id="point-amnt">{{ request.user.points }}</span>
+                                </div>
+
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    Link 4
+                                </div>
+    
+                            </div>
+    
+                            <div>
+                                <p class="mb-0">
+                                    <a href="logout" class="text-white-50 fw-bold">Log Out</a>
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+<div id="info-popup" data-isDay="true"></div>
+
+<div id="kanji-container">
+    <div id="top-container">
+        <span id="tips">
+            {% if messages %}
+                <ul class="messages" style="list-style: none;">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                Click a Kanji to view more info about it!
+            {% endif %}
+        </span>
+        <span id="next-page">
+            <button id="np-button" class="hover-scale">Make a Post > </button>
+        </span>
+    </div>
+    <div id="kanji-1"></div>
+    <div id="kanji-2"></div>
+    <div id="kanji-3"></div>
+</div>
+
+<div id="post-container">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+
+                            <h1 class="fw-bold mb-2 text-uppercase">Create a Post</h1>
+                            
+                            <form action="{% url 'create' %}" method="post">
+                                {% csrf_token %}
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    Selected Kanji: <div id="selected-kanji"></div>
+                                </div>
+
+                                <div>
+                                    <input type="hidden" name="kanji" id="hidden-kanji">
+                                </div>
+        
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    <!-- Dropdown list of categories. i.e., "Incorporation", or "Question" -->
+                                    Category: <div id="category-div">
+                                        <select name="category" id="category-list">
+                                            <option value="use">Use these Kanji!</option>
+                                            <option value="question">I have a question...</option>
+                                            <option value="general">General Discussion</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                                <div class="fw-bold mb-2 text-uppercase">
+                                    <!-- Text area for OP to enter any additional information -->
+                                    Caption: <div id="caption">
+                                        <textarea name="caption" placeholder="What else would you like to say?"></textarea>
+                                    </div>
+                                </div>
+    
+                                <button type="submit" class="btn btn-outline-light btn-lg px-5" id="post-button">Post</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bottom-container">
+    <div id="is-full"></div>
+    <div id="kanji-to-post"></div>
+</div>
+
+{% endblock %}

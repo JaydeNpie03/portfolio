@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Index{% endblock %}</title>
+        <link href="{% static 'final_project/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
+        <meta name="google" value="notranslate">   <!-- Prevent auto-translate -->    
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="topbar-div">
+            <a href="/" class="hover-scale" style="text-decoration:none">
+                <img src="{% static 'final_project/media/kazeniDay.png' %}" id="logo" alt="風に">
+            </a>
+            
+            <div id="menu">
+                <!-- Circular icon containing user's profile picture, or a placeholder image. -->
+                <span>
+                    <a href="/">Home</a>
+                    <a href="/posts">Posts</a>
+                    <a href="/search">Search</a>
+                    <a href="/practice">Practice</a>
+                </span>
+                <span>
+                    <img id="profile_pic" src="{{ request.user.profile_img.url }}" onerror="this.src='/media/user_profile_pics/default.png';">
+                </span>
+                <span>
+                    <button id="user-button">
+                        {% if request.user.is_authenticated %}
+                            {{ request.user.username }}
+                        {% else %}
+                            Log In
+                        {% endif %}
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
