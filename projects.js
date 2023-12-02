@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var project_array = createArray();
+    var projectArray = createArray();
     setupListeners();
     
     function setupListeners() {
