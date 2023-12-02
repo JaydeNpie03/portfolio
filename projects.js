@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('row1').appendChild(colDiv);
                 colDiv.style.animation = 'fadeIn .5s ease-in 1 forwards running';
             }
-        })
+        }
     }
 
      function createArray() {
