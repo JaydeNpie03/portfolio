@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-     function createArray() {
+    function createArray() {
         return {
           "1": {
             "title": "Tic-Tac-Toe",
@@ -168,4 +168,5 @@ document.addEventListener('DOMContentLoaded', () => {
             "type": "HTML"
             }
         }
+    }
 });
