@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
     setupListeners();
     
     function setupListeners() {
