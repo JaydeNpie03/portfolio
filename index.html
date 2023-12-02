@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        
+        <title>My Portfolio</title>
+        <style>
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+
+            body {
+                background-color: rgb(var(--bs-dark-rgb));
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container text-light text-center">
+
+            <!--Nav Bar-->
+            <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+                <div class="container g-col-6">
+                    <a class="navbar-brand mb-0 fs-2 text-light" href="#">Jayden Woolery</a>
+                </div>
+            </nav>
+
+            <!--Intro Body-->
+            <div id="introDiv" class="row align-items-center justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12 my-5">
+                    <p align="left" class="fs-1">
+                        Hello, I'm Jayden.
+                    </p>
+                    <p align="left" class="text-white-50 fs-4 text-wrap">
+                        I am currently a student at UT Dallas, majoring in Computer Science. I'm interested in expanding upon my current skills 
+                        in a corporate setting. I have a strong foundation in several coding languages such as 
+                        Java, Python, and C#, as well as HTML/JS. 
+                    </p>
+                    <button type="button" id="projects" class="btn btn-lg btn-primary rounded-pill">
+                        <a class="nav-link" href="#">My Projects</a>
+                    </button>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="card">
+                        <img src="{% static 'portfolio/dog.jpeg' %}" class="card-img-top px-2 pt-2 rounded-5" alt="Image could not be loaded." />
+                        <div class="card-body">
+                            <h3 class="card-title">My Info</h3>
+                            <span class="card-text h5">Email:</span> <span class="card-text">jaydenwoolery@gmail.com</span><br>
+                            <span class="card-text h5">Phone:</span> <span class="card-text">+1214-635-6378</span><br>
+
+                            <a href="https://drive.google.com/file/d/11Dk_s2GONE9ymiFgLOeqtCcpXGbu3xgD/preview" class="btn btn-primary" target="_blank" rel="noreferrer noopener">View Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Projects Body-->
+            <div id="projectsDiv" style="display: none;">
+                <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+                    <div class="d-flex w-50 mr-0">
+                        <a id="backNav" class="btn btn-lg btn-outline-secondary" href="#">&lt;&lt; Go Back</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTypes" aria-controls="navbarTypes" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="navbarTypes" class="collapse navbar-collapse w-100">
+                        <ul class="navbar-nav mb-2 mx-auto text-center">
+                            <li class="nav-item">
+                                <a href="#" id="allNav" class="nav-link fs-1 active">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" id="pythonNav" class="nav-link fs-1">Python</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" id="javaNav" class="nav-link fs-1">Java</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" id="htmlNav" class="nav-link fs-1">HTML</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex w-50"></div> <!--Used to center project navbar without absolute.-->
+                </nav>
+                <div id="row1" class="row align-items-center justify-content-center">
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'portfolio/projects.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
