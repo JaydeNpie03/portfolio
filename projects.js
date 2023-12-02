@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 "title": "Kazeni",
                 "preview_pic": "https://jaydenpie03.github.io/portfolio/images/kazeniLogoSquare.png",
-                "desc": "A website that serves as a fun way to learn various Japanese Kanji. Uses KanjiAPI for kanji data.",
+                "desc": "A Django website that serves as a fun way to learn various Japanese Kanji. Uses KanjiAPI for kanji data.",
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/kazeni",
                 "type": "HTML"
             },
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
              {
                 "title": "Wiki",
                 "preview_pic": "https://jaydenpie03.github.io/portfolio/images/wiki.png",
-                "desc": "A simple wiki, allows user to search, add, and sort entries.",
+                "desc": "A simple wiki using Django, allows user to search, add, and sort entries.",
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/wiki",
                 "type": "HTML"
             },
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 "title": "Airline Booking",
                 "preview_pic": "https://jaydenpie03.github.io/portfolio/images/airline.png",
-                "desc": "A simplified version of an airline booking site. Allows user to create a booking, search existing bookings, and see who's on which flights.",
+                "desc": "A simplified version of an airline booking site using Django. Allows user to create a booking, search existing bookings, and see who's on which flights.",
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/airline",
                 "type": "HTML"
             }
