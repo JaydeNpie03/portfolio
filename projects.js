@@ -166,7 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 "desc": "A simplified version of an airline booking site using Django. Allows user to create a booking, search existing bookings, and see who's on which flights.",
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/airline",
                 "type": "HTML"
+            },
+
+            {
+                "title": "Maze Generator",
+                "preview_pic": "https://jaydenpie03.github.io/portfolio/images/maze.png",
+                "desc": "A Java app which generates a random maze of customizable size. Displays generation process on a Swing GUI.",
+                "github": "https://github.com/JaydeNpie03/portfolio/tree/main/maze",
+                "type": "JAVA"
             }
+
+
+            
         ]
     }
 });
