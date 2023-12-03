@@ -1,4 +1,6 @@
-package main;
+//Make sure to download the entire maze folder, to ensure that "package maze;" work!
+
+package maze;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
