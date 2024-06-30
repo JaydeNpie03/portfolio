@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,13 +59,13 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-10">
                     <div class="card">
-                        <img src="https://jaydenpie03.github.io/portfolio/images/dog.jpeg" class="card-img-top px-2 pt-2 rounded-5" alt="Image could not be loaded." />
+                        <img src="{% static 'portfolio/dog.jpeg' %}" class="card-img-top px-2 pt-2 rounded-5" alt="Image could not be loaded." />
                         <div class="card-body">
                             <h3 class="card-title">My Info</h3>
                             <span class="card-text h5">Email:</span> <span class="card-text">jaydenwoolery@gmail.com</span><br>
                             <span class="card-text h5">Phone:</span> <span class="card-text">+1214-635-6378</span><br>
 
-                            <a href="https://drive.google.com/file/d/11Dk_s2GONE9ymiFgLOeqtCcpXGbu3xgD/preview" class="btn btn-primary" target="_blank" rel="noreferrer noopener">View Resume</a>
+                            <a href="https://drive.google.com/file/d/1tfGxe2S6LN9yLKU1rV4TtV8zItobpSAZ/preview" class="btn btn-primary" target="_blank" rel="noreferrer noopener">View Resume</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +103,7 @@
             </div>
         </div>
 
-        <script src="https://jaydenpie03.github.io/portfolio/projects.js"></script>
+        <script src="{% static 'portfolio/projects.js' %}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>
