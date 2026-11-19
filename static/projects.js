@@ -130,9 +130,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 //Value Assignments
                 colDiv.style.opacity = '0'
                 previewPic.src = p['preview_pic'];
-                title.innerHTML = p['title'];
-                if ('key' in p) {
-                    title.href = p['href'];
+                
+                if ('href' in p) {
+                    const cardLink = document.createElement("a");
+                    cardLink.href = p['href']
+                    cardLink.textContent = p['title'];
+                    title.appendChild(cardLink);
+                } else {
+                    title.innerHTML = p['title'];
                 }
                 desc.innerHTML = p['desc'];
                 github.innerHTML = 'View GitHub Repo';
