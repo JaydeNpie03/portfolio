@@ -32,15 +32,15 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: react-app/package-lock.json
+          cache-dependency-path: mondex/package-lock.json
 
       - name: Install React dependencies
         run: npm ci
-        working-directory: react-app
+        working-directory: mondex
 
       - name: Build React application
         run: npm run build
-        working-directory: react-app
+        working-directory: mondex
 
       - name: Prepare website
         run: |
@@ -59,7 +59,7 @@ jobs:
           fi
 
           # Copy compiled React application
-          cp -R react-app/dist/. _site/mondex/
+          cp -R mondex/dist/. _site/mondex/
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6

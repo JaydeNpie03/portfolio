@@ -131,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 colDiv.style.opacity = '0'
                 previewPic.src = p['preview_pic'];
                 title.innerHTML = p['title'];
+                if ('key' in p) {
+                    title.href = p['href'];
+                }
                 desc.innerHTML = p['desc'];
                 github.innerHTML = 'View GitHub Repo';
                 github.href = p['github'];
@@ -171,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
 
             {
-                "title": "Monster Hunter Dex",
+                "title": "Monster Hunter Dex (Click me!)",
+                "href": "/mondex",
                 "preview_pic": "https://jaydenpie03.github.io/portfolio/static/images/mondex.png",
                 "desc": "A website built entirely with React/Bootstrap used to look up info on enemies from the game 'Monster Hunter'. Uses a self-hosted API for data (see 'MH-API').",
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/mondex",
