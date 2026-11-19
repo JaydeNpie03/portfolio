@@ -24,7 +24,7 @@ export default function MonsterCard({ children }) {
         <div className="journal w-100 mx-auto overflow-hidden">
 
             {/* Journal background image */}
-            <img src="./src/assets/journal.jpg" className="position-absolute top-0 start-0 w-100 h-100 object-fit-contain"/>
+            <img src={`${import.meta.env.BASE_URL}images/journal.jpg`} className="position-absolute top-0 start-0 w-100 h-100 object-fit-contain"/>
             
             {/* Journal pages (React body) */}
             <div className="root row row-cols-2 paper-content position-absolute top-0 start-0 h-100 p-5 overflow-hidden" style={{ marginLeft: "18%", width: "70%" }}>
