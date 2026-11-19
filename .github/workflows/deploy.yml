@@ -1,0 +1,74 @@
+
+name: Build React & Deploy GitHub Pages
+
+on:
+  push:
+    branches: [site]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: react-app/package-lock.json
+
+      - name: Install React dependencies
+        run: npm ci
+        working-directory: react-app
+
+      - name: Build React application
+        run: npm run build
+        working-directory: react-app
+
+      - name: Prepare website
+        run: |
+          mkdir -p _site/mondex
+
+          # Copy existing homepage
+          cp index.html _site/
+
+          # Copy existing homepage assets, if present
+          if [ -d static ]; then
+            cp -R static _site/static
+          fi
+
+          if [ -d templates ]; then
+            cp -R templates _site/templates
+          fi
+
+          # Copy compiled React application
+          cp -R react-app/dist/. _site/mondex/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v5

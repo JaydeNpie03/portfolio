@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pNav = document.getElementById('pythonNav');
         const hNav = document.getElementById('htmlNav');
         const jNav = document.getElementById('javaNav');
+        const oNav = document.getElementById('otherNav');
 
         //Anim Listeners
         pDiv.addEventListener('animationend', (event) => {
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 hNav.classList.toggle('active', false)
                 jNav.classList.toggle('active', false)
                 pNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', false)
             }
         }); 
 
@@ -48,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pNav.classList.toggle('active', false)
                 hNav.classList.toggle('active', false)
                 jNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', false)
                 aNav.classList.toggle('active', true)
                 getProjects();
             }
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 aNav.classList.toggle('active', false)
                 hNav.classList.toggle('active', false)
                 jNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', false)
                 pNav.classList.toggle('active', true)
                 getProjects('PYTHON');
             }
@@ -70,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pNav.classList.toggle('active', false)
                 hNav.classList.toggle('active', false)
                 aNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', false)
                 jNav.classList.toggle('active', true)
                 getProjects('JAVA');
             }
@@ -81,8 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 pNav.classList.toggle('active', false)
                 aNav.classList.toggle('active', false)
                 jNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', false)
                 hNav.classList.toggle('active', true)
                 getProjects('HTML');
+            }
+        });
+
+        //Other Projects
+        oNav.addEventListener('click', () => {
+            if(!oNav.classList.contains('active')) {
+                pNav.classList.toggle('active', false)
+                aNav.classList.toggle('active', false)
+                jNav.classList.toggle('active', false)
+                hNav.classList.toggle('active', false)
+                oNav.classList.toggle('active', true)
+                getProjects('OTHER');
             }
         });
     }
@@ -151,8 +169,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 "github": "https://github.com/JaydeNpie03/portfolio/tree/main/kazeni",
                 "type": "HTML"
             },
+
+            {
+                "title": "Monster Hunter Dex",
+                "preview_pic": "https://jaydenpie03.github.io/portfolio/static/images/mondex.png",
+                "desc": "A website built entirely with React/Bootstrap used to look up info on enemies from the game 'Monster Hunter'. Uses a self-hosted API for data (see 'MH-API').",
+                "github": "https://github.com/JaydeNpie03/portfolio/tree/main/mondex",
+                "type": "HTML"
+            },
+
+            {
+                "title": "Monster Hunter API (MH-API)",
+                "preview_pic": "https://jaydenpie03.github.io/portfolio/static/images/mhapi.png",
+                "desc": "An API forked from an existing project and heavily customized. Self-hosted on an Oracle Micro Ubuntu VM, using Nginx, Docker, Go, and much more. Used for 'Monster Hunter Dex'.",
+                "github": "https://github.com/JaydeNpie03/Monster-Hunter-API",
+                "type": "OTHER"
+            },
         
-             {
+            {
                 "title": "Wiki",
                 "preview_pic": "https://jaydenpie03.github.io/portfolio/static/images/wiki.png",
                 "desc": "A simple wiki using Django, allows user to search, add, and sort entries.",
